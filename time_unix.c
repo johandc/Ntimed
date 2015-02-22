@@ -89,7 +89,7 @@ kt_setfreq(struct ocx *ocx, double frequency)
 #endif
 
 	tx.status = STA_PLL | STA_FREQHOLD;
-	tx.modes = MOD_FREQUENCY;
+	tx.modes |= MOD_FREQUENCY;
 	tx.freq = (long)floor(frequency * (65536 * 1e6));
 	errno = 0;
 	i = ntp_adjtime(&tx);
